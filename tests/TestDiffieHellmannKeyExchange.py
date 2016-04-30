@@ -34,3 +34,18 @@ class TestDiffieHellmannKeyExchange(TestCase):
         key1, key2 = dhke.do_key_exchange()
 
         self.assertEqual(key1, key2)
+
+    def testDHKEwithoutAlphaAndLargePrime(self):
+        # Prime number found by Cataldi in 1588
+        p = pow(2, 17)-1
+
+        dhke = DiffieHellmannKeyExchange(prime=p)
+        key1, key2 = dhke.do_key_exchange()
+
+        self.assertEqual(key1, key2)
+
+    def testDHKEwithoutExternalParameters(self):
+        dhke = DiffieHellmannKeyExchange()
+        key1, key2 = dhke.do_key_exchange()
+
+        self.assertEqual(key1, key2)

@@ -1,7 +1,21 @@
 # -*- coding: utf-8 -*-
 
-# ToDo: Write a few lines about the DHKE
+# The Diffie-Hellman Key Exchange
+#
+# The Diffie-Hellman Key Exchange solves the challenge to agree onto a secret
+# key over a unsecure communication channel (known as Diffie-Hellman-problem).
+# It's security is based on discrete logarithms over finite fields. It has been
+# developed by Martin Hellman, Whitfield Diffie and Ralph Merkle at the
+# University of Stanford.
+#
+# This method can be attacked by man-in-the-middle techniques. To avoid this,
+# the use of additional security methods (such as signatures) is necessary.
+# There exist several derived algorithms, such as ECDH (over elliptic curves)
+# or Ephemeral Diffie-Hellman (used by TLS 1.2), which uses new domain
+# parameters for each session.
+#
 # Wikipedia: https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange
+
 
 from random import randint
 
@@ -20,18 +34,10 @@ class DiffieHellmannKeyExchange:
     k_ba = 0
 
     def __init__(self, prime=False, alpha=False, a=False, b=False):
-        if prime:
-            self.prime = prime
-        else:
-            # ToDo
-            True
 
-        if alpha:
-            self.alpha = alpha
-        else:
-            # ToDo
-            True
-
+        # ToDo: Generate a high prime number to use as p parameter
+        self.prime = prime or pow(2, 19)-1
+        self.alpha = alpha or randint(2, self.prime-2)
         self.a = a or randint(2, self.prime-2)
         self.b = b or randint(2, self.prime-2)
 
