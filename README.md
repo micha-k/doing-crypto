@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/micha-k/doing-crypto.svg?branch=master)](https://travis-ci.org/micha-k/doing-crypto)
 [![Coverage Status](https://coveralls.io/repos/github/micha-k/doing-crypto/badge.svg?branch=master)](https://coveralls.io/github/micha-k/doing-crypto?branch=master)
 
-This is a repo where I spent some of my rare spare time hours to keep my computer skills in shape. Therefore I'll try to re-implement a few of the most common crypto algorithms in python.
+This is a repo where I spent some of my rare spare time hours to keep my computer skills in shape. Therefore I'll try to re-implement a few of the most common historic and modern crypto algorithms in python.
 
 _Warning:_ This is just for fun! I DO NOT encourage anybody to use my implementations anywhere. They are probably full of bugs, flaws and use insecure random numbers! Use industry standard implementations. I do in production environments as well.
 
