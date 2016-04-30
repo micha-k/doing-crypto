@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Ceasar Cipher
+# Caesar Cipher
 #
 # With a key value of 13 known as ROT13 as well.
 #
@@ -8,7 +8,7 @@
 # https://en.wikipedia.org/wiki/ROT13
 
 
-class CeaserCipher:
+class CaeserCipher:
 
     alphabet = ()
 

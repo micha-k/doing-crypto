@@ -27,4 +27,4 @@ Run all tests
 
 ## Literature
 
-* A great book for getting started is _Understanding Crpytography_ by Christof Paar and Jan Pelzl, ISBN: 978-3-642-04100-6
+* A great book for getting started is _Understanding Cryptography_ by Christof Paar and Jan Pelzl, ISBN: 978-3-642-04100-6
