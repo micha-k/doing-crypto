@@ -1,5 +1,6 @@
 # doing-crypto
 [![Build Status](https://travis-ci.org/micha-k/doing-crypto.svg?branch=master)](https://travis-ci.org/micha-k/doing-crypto)
+[![Coverage Status](https://coveralls.io/repos/github/micha-k/doing-crypto/badge.svg?branch=master)](https://coveralls.io/github/micha-k/doing-crypto?branch=master)
 
 This is a repo where I spent some of my rare spare time hours to keep my computer skills in shape. Therefore I'll try to re-implement a few of the most common crypto algorithms in python.
 
