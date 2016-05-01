@@ -6,37 +6,30 @@
 
 class Trivium:
 
-    # Registers: 93, 84 and 111 bits
-    a = [0]*93
-    b = [0]*84
-    c = [0]*111
-
     def __init__(self, iv, key):
-        self.iv = iv
-        self.key = key
+        """Initializes a new trivium setup with key and initialization vector.
+        Both are supplied as 80bit arrays with either 0 or 1 on each bit."""
 
-        # 80-bit IV into the first 80 locations of register A
-        i = 0
-        for bit in self.iv:
-            self.a[i] = bit
-            i += 1
+        # 80-bit IV into the first 80 locations of register A (93 bits)
+        self.a = iv + [0]*13
 
-        # 80-bit key into the first 80 locations of register B
-        i = 0
-        for bit in self.key:
-            self.b[i] = bit
-            i += 1
+        # 80-bit key into the first 80 locations of register B (84b its)
+        self.b = key + [0]*4
 
-        # Three rightmost bits of register C to one
-        self.c[108] = 1
-        self.c[109] = 1
-        self.c[110] = 1
+        # Three rightmost bits of register C (111 bits) to one
+        self.c = [0]*108 + [1]*3
+
+    def warm_up(self):
+        """Prepare the registers to en-/decrypt sensitive data by doing 4 full
+        dryruns over the whole setup"""
 
         # Warm up: clock 4x 288 = 1152 times
         for i in xrange(1152):
             self.clock_registers()
 
     def clock_registers(self):
+        """One run of the all three shift registers according to the Trivium
+        specifications"""
 
         # shift register A
         and_input = (self.c[108] * self.c[109]) % 2
@@ -66,6 +59,10 @@ class Trivium:
         return (output_a + output_b + output_c) % 2
 
     def encrypt_decrypt(self, text):
+        """Takes a plain text/cipher text as array of bits (1 or 0) and XORs
+        it with the Trivium key stream. The result is returned as array of
+        bits as well"""
+        
         result = []
 
         for bit in text:
