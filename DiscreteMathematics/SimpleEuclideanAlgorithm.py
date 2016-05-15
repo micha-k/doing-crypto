@@ -19,7 +19,7 @@ class EA:
                 if not isinstance(parameter, int):
                     print('Failed - parameter is no integer: %s' %parameter)
                     return False
-                if not int_a >= 0:
+                if not parameter >= 0:
                     print('Failed - parameter %d < 0' % parameter)
                     return False
 
